@@ -1,0 +1,22 @@
+---
+- name: Set the test folder variable
+  set_fact:
+    test_folder: "{{ playbook_dir }}/roles/test1/tests/" 
+
+- name: Create catalogs from control
+  generate_control_catalogs:
+
+
+# - name: Create new dictionary
+#   set_fact:
+#     nginx_backend: >-
+#     {%- set nginx_backend = [] -%}
+#     {%- for ng in nginx -%}
+#     {% set instance = dict() %}
+#     {%- set _ = instance.update({'url': "http://" ~ ng.nginx_host ~ ":" ~ ng.nginx_port | default(nginx_port)}) -%}
+#     {%- set _ = instance.update({'user': ng.user}) -%}
+#     {%- set _ = instance.update({'password': ng.password}) -%}
+#     {%- set _ = instance.update({'need_zoo_unlock': ng.need_zoo_unlock | bool | default(True)}) -%}
+#     {{ nginx_backend.append(instance) }}
+#     {%- endfor -%}
+#     {{ nginx_backend }}

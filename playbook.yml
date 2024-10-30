@@ -1,0 +1,17 @@
+---
+- name: TEST PLAY
+  hosts: localhost
+  gather_facts: false
+  roles:
+    - name: common
+      role: common    
+
+    - name: TEST1
+      role: test1
+      tags:
+        - test1
+
+    - name: TEST2
+      role: test2
+      tags:
+        - test2

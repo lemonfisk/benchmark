@@ -1,0 +1,3 @@
+---
+- name: Validdate
+  debug: msg="Dates is {{ start_date }}"

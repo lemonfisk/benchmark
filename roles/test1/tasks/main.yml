@@ -1,0 +1,15 @@
+---
+- name: Set the test folder variable
+  set_fact:
+    test_folder: "{{ playbook_dir }}/roles/test1/tests/"    
+
+
+- name: Read file
+  shell: "cat {{ playbook_dir }}/files/dates.txt"
+  register: dates_info
+
+- name: Include the approriate test file
+  include_tasks: "{{test_folder}}/validate.yml"
+  vars:
+    start_date: "{{ item }}"
+  with_items: "{{ dates_info.stdout_lines }}"
